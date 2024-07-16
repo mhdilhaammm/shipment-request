@@ -1,0 +1,16 @@
+﻿td[data-status="Submit"] {
+    background-color: #f1ec91; /* Warna latar belakang yang berbeda untuk status "Submit" */
+}
+
+td[data-status="Complete"] {
+    background-color: #c0ffc0; /* Warna latar belakang yang berbeda untuk status "Complete" */
+}
+
+td[data-status="Pending"] {
+    background-color: #f37474; /* Warna latar belakang yang berbeda untuk status "Pending" */
+}
+
+.accepted {
+    background-color: green; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    color: white; /* Ganti dengan warna teks yang sesuai */
+}

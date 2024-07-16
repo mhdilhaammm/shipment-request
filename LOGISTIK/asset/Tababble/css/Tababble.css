@@ -1,0 +1,36 @@
+﻿.tabs {
+    display: flex;
+    font-family: Arial, sans-serif;
+}
+
+.tab {
+    padding: 10px;
+    margin-left: 6px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    background-color: #3e8979;
+    color: ghostwhite;
+}
+
+.tab:hover{
+    background-color: #5EA290;
+}
+
+.tab-content{
+    display: none;
+}
+
+.tab-content.show{
+    display:block;
+}
+
+.tab:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+.tab:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

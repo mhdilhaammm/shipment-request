@@ -1,0 +1,18 @@
+﻿@model LOGISTIK.Models.CombineViewModel
+@{
+    Layout = "";
+    ViewBag.Title = "ListEmail";
+}
+
+@using(Html.BeginForm("ListEmail", "LOGISTIK", FormMethod.Get))
+{
+    @Html.AntiForgeryToken()
+    <label>List Email</label>
+    
+        foreach (var listEmail in Model.ListEmail)
+        {
+            <p>
+                <input type="checkbox" name="selectedEmails" value="@listEmail.EmailForwarder" /> @listEmail.Name
+            </p>
+        }
+ }

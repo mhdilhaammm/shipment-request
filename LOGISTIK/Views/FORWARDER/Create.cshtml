@@ -1,0 +1,538 @@
+﻿@model LOGISTIK.Models.CombineViewModel
+@{
+    Layout = "";
+    ViewBag.Title = "Create data FORWARDER";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shipment Request</title>
+
+    <link rel="icon" href="~/asset/docs/assets/img/logo-infineon.png" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/asset/plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/asset/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/asset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/asset/dist/css/adminlte.min.css">
+    <!--Modal Button-->
+    <link rel="stylesheet" href="~/asset/Modal/scss/Classes.scss">
+    <!--Untuk Tampilan Form Validasi-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/asset/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/asset/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="~/asset/dist/css/Table.css" />
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="bi bi-person-circle"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="float-right text-muted text-sm">@User.Identity.Name</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-danger elevation-4">
+            @Html.Action("Sidebar", "FORWARDER")
+        </aside>
+
+        @using (Html.BeginForm("Create", "FORWARDER", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <!-- FORM 1 -->
+            <div class="content-wrapper">
+                <div class="content-header">
+                    <div class="row mr-sm-2">
+                        <div class="col-sm-12">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item">
+                                    <a href="/FORWARDER/Index">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Form Requestor
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="card card-danger mr-md-3 ml-md-3 mt-sm-2">
+                        <div class="card-header" style="background-color: #3e8979">
+                            <h3 class="card-title">Requestor</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label>Requestor Badge ID</label>
+                                        @Html.EditorFor(shipment => shipment.RequestorModel.BadgeId, new { htmlAttributes = new { @class = "form-control", required = "required", type = "phone" } })
+                                        @Html.ValidationMessageFor(model => model.RequestorModel.BadgeId)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        @Html.EditorFor(shipment => shipment.RequestorModel.Name, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.RequestorModel.Name)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(shipment => shipment.RequestorModel.Email, new { htmlAttributes = new { @class = "form-control", required = "required", type = "email" } })
+                                            @Html.ValidationMessageFor(model => model.RequestorModel.Email)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Departement</label>
+                                        @Html.EditorFor(shipment => shipment.RequestorModel.Department, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.RequestorModel.Department)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Superior</label>
+                                        @Html.EditorFor(shipment => shipment.RequestorModel.Superior, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.RequestorModel.Superior)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/FOMR 1-->
+                        <!-- FORM 2 -->
+                        <div class="card-header" style="background-color: #3e8979">
+                            <h3 class="card-title">Equipment Details</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>PO Machine / Equipment / Tools</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Po_Machine, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.EquipmentModel.Po_Machine)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Equipment Type (i.e Handler, Tester, WB, Oven..)</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Equipment_Type, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.EquipmentModel.Equipment_Type)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <div class="input-group">
+                                            @Html.EditorFor(shipment => shipment.EquipmentModel.QTY, new { htmlAttributes = new { @class = "form-control col-sm-6 mr-sm-2", required = "required" } })
+                                            @Html.DropDownListFor(shipment => shipment.EquipmentModel.Satuan_QTY, GetUnitSelectList(), htmlAttributes: new { @class = "form-select", id = "validationCustom04" })
+                                            @Html.ValidationMessageFor(model => model.EquipmentModel.Satuan_QTY)
+                                            @Html.ValidationMessageFor(model => model.EquipmentModel.QTY)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Machine placement location</label>
+                                        @Html.DropDownListFor(shipment => shipment.EquipmentModel.Location, GetLocationSelectList(), htmlAttributes: new { @class = "form-select", id = "validationCustom04" })
+                                        @Html.ValidationMessageFor(model => model.EquipmentModel.Location)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Equipment only Gross Weight (in Kg)</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Equipment_Gross, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                        @Html.ValidationMessageFor(model => model.EquipmentModel.Equipment_Gross)
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Invoice & Packing List (Mandatory)</label>
+                                        <input type="file" name="file" id="file" class="form-control" onchange="displayFileSize()" />
+                                        <p>Maksimal size 5MB</p>
+                                        <span id="fileSizeInfo"></span>
+                                        @Html.ValidationMessage("File")
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Dimension L x W x H (In Cm)</label>
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 ", @placeholder = "Lenght-1", @required = "required" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2", @placeholder = "Weight-1", @required = "required" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height, new { htmlAttributes = new { @class = "form-control col-sm-3 ", @placeholder = "Height-1", @required = "required" } })
+                                        </div>
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length_2, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Lenght-2" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight_2, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Weight-2" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height_2, new { htmlAttributes = new { @class = "form-control col-sm-3 mt-1", @placeholder = "Height-2" } })
+                                        </div>
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length_3, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Lenght-3" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight_3, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Weight-3" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height_3, new { htmlAttributes = new { @class = "form-control col-sm-3 mt-1", @placeholder = "Height-3" } })
+                                        </div>
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length_4, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Lenght-4" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight_4, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Weight-4" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height_4, new { htmlAttributes = new { @class = "form-control col-sm-3 mt-1", @placeholder = "Height-4" } })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length_5, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Lenght-5" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight_5, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Weight-5" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height_5, new { htmlAttributes = new { @class = "form-control col-sm-3 mt-1", @placeholder = "Height-5" } })
+                                        </div>
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length_6, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Lenght-6" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight_6, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Weight-6" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height_6, new { htmlAttributes = new { @class = "form-control col-sm-3 mt-1", @placeholder = "Height-6" } })
+                                        </div>
+                                        <div class="form-group row" style="margin-left:5px">
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Length_7, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Lenght-7" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Weight_7, new { htmlAttributes = new { @class = "form-control col-sm-3 mr-2 mt-1", @placeholder = "Weight-7" } })
+                                            @Html.EditorFor(shipment => shipment.DimensionModel.Height_7, new { htmlAttributes = new { @class = "form-control col-sm-3 mt-1", @placeholder = "Height-7" } })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/FOMR 2-->
+                        <!-- FORM 3 -->
+                        <div class="card-header" style="background-color: #3e8979">
+                            <h3 class="card-title">Shipper Contact</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Contact Person</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Contact_Person, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Phone Number</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Phone, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group mb-3">
+                                            @Html.EditorFor(shipment => shipment.EquipmentModel.Email_Address, new { htmlAttributes = new { @class = "form-control ", @type = "email", required = "required" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Company Name</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Company, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Addres</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Address, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label>Post Code</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Post_Code, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Country</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Country, new { htmlAttributes = new { @class = "form-control ", required = "required" } })
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Estimation of cargo pick-up time?</label>
+                                        @Html.EditorFor(shipment => shipment.EquipmentModel.Pickup_Time, new { htmlAttributes = new { @class = "form-control datepicker", @type = "date", required = "required" } })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/FOMR 3-->
+                        <!-- FORM 4 -->
+                        <div class="card-header" style="background-color: #3e8979">
+                            <h3 class="card-title">Cargo Condition</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the equipment is New Equipment?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q1, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q1, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the cargo need Crating at origin?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q2, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q2, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the cargo has been calibrated before shipment?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q3, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q3, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Who will do the packing / crating for the cargo?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q4, "Shipper", new { @type = "radio", @name = "YesNoOption", @value = "Shipper" })Shipper
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q4, "Forwarder", new { @type = "radio", @name = "YesNoOption", @value = "Forwarder", required = "required" })Forwarder
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does cargo need special truck?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q5, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q5, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does cargo need Temperature Control ?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q6, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q6, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the cargo need Uncrating, Pulling and Levelling to Production ?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q7, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q7, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Can we tilt the cargo during transportation?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q8, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q8, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the cargo need Shock Watch?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q9, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q9, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the cargo need fumigation ?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q10, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q10, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Does the cargo consider as Dangerous Goods ?</label>
+                                    <div class="col-md-7">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q11, "Yes", new { @type = "radio", @name = "YesNoOption", @value = "yes" })Yes
+                                            @Html.RadioButtonFor(shipment => shipment.CargoModel.Q11, "No", new { @type = "radio", @name = "YesNoOption", @value = "No", required = "required" })No
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">If Yes, what is the MSDS?</label>
+                                    <div class="col-sm-2">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.EditorFor(shipment => shipment.CargoModel.Q12, new { htmlAttributes = new { @class = "form-control " } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Other requirement/s on crate</label>
+                                    <div class="col-sm-2">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.EditorFor(shipment => shipment.CargoModel.Q13, new { htmlAttributes = new { @class = "form-control " } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row">
+                                    <label class="col-form-label col-sm-4">ETA expectation by date</label>
+                                    <div class="col-sm-2">
+                                        <div style="padding-top: calc(.375rem + 1px)">
+                                            @Html.EditorFor(shipment => shipment.CargoModel.Q15, new { htmlAttributes = new { @class = "form-control datepicker", @type = "date", required = "required" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                            </div>
+                            <div class="form-group ml-sm-1">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                                <input type="reset" value="Cancel" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/FOMR 4-->
+            </div>
+        }
+
+        <footer class="main-footer">
+            <center>
+                <p>Create by logistic</p>
+            </center>
+        </footer>
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/asset/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="~/asset/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/asset/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/asset/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/asset/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/asset/plugins/jszip/jszip.min.js"></script>
+    <script src="~/asset/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/asset/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/asset/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/asset/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/asset/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/asset/dist/js/adminlte.min.js"></script>
+    <!--Modal Button-->
+    <script src="~/asset/Modal/js/jsModal.js"></script>
+    <!--JS untuk tampilan form validasi-->
+    <script src="~/asset/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- Display size File Invoice -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+    <script>
+        function displayFileSize() {
+            var fileInput = document.getElementById('file');
+            var fileSizeInfo = document.getElementById('fileSizeInfo');
+
+            if (fileInput.files.length > 0) {
+                var fileSize = fileInput.files[0].size; // Ukuran file dalam byte
+                var fileSizeInKB = fileSize / 1024; // Konversi ke KB
+                fileSizeInfo.textContent = 'Ukuran file: ' + fileSizeInKB.toFixed(2) + ' KB';
+            } else {
+                fileSizeInfo.textContent = ''; // Reset teks jika tidak ada file yang dipilih
+            }
+        }
+    </script>
+
+    @functions
+    {
+        public SelectList GetUnitSelectList()
+        {
+            var unit = new List<SelectListItem>
+    {
+        new SelectListItem {Text ="Box/Boxes", Value="Box/Boxes"},
+        new SelectListItem {Text ="Crate/Crates", Value="Crate/Crates"},
+        new SelectListItem {Text ="Piece/Pieces", Value="Piece/Pieces"},
+        new SelectListItem {Text ="Unit/Units", Value="Unit/Units"}
+
+    };
+            return new SelectList(unit, "Value", "Text");
+        }
+    }
+
+    @functions
+    {
+        public SelectList GetLocationSelectList()
+        {
+            var unit = new List<SelectListItem>
+    {
+        new SelectListItem {Text ="BATAM 1", Value="BATAM 1"},
+        new SelectListItem {Text ="BATAM 2", Value="BATAM 2"},
+        new SelectListItem {Text ="BATAM 3", Value="BATAM 3"},
+
+    };
+            return new SelectList(unit, "Value", "Text");
+        }
+    }
+
+</body>
+</html>

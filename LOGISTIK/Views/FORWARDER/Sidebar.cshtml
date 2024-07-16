@@ -1,0 +1,199 @@
+﻿@if (ViewBag.role == 1)
+{
+    <!-- Brand Logo -->
+    <a href="/FORWARDER/Dashboard" class="brand-link">
+        <img src="~/asset/docs/assets/img/Infineon.png" alt="navbar brand" class="brand-image navbar-brand" style="opacity: .8">
+        <span class="brand-text font-weight-light">LOGISTIK</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar mt-md-2">
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" style="background-color: #3e8979">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Shipment Fitur
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/LOGISTIK/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Requestor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/LOGISTIK/Create" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Requestor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/LOGISTIK/TabelConvert" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Table Convert</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/User/Index" class="nav-link active" style="background-color: #3e8979">
+                        <i class="bi bi-people-fill nav-icon"></i>
+                        <p>
+                            Account User
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+}
+
+@if (ViewBag.role == 0)
+{
+    <!-- Brand Logo -->
+    <a href="/FORWARDER/Dashboard" class="brand-link">
+        <img src="~/asset/docs/assets/img/Infineon.png" alt="navbar brand" class="brand-image navbar-brand" style="opacity: .8">
+        <span class="brand-text font-weight-light">LOGISTIK</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar mt-md-2">
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                <li class="nav-item">
+
+                    <a href="#" class="nav-link active" style="background-color: #3e8979">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Shipment Fitur
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/FORWARDER/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Requestor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/FORWARDER/Create" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Requestor</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+}
+@if (ViewBag.role == 2)
+{
+    <!-- Brand Logo -->
+    <a href="/FORWARDER/Dashboard" class="brand-link">
+        <img src="~/asset/docs/assets/img/Infineon.png" alt="navbar brand" class="brand-image navbar-brand" style="opacity: .8">
+        <span class="brand-text font-weight-light">LOGISTIK</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar mt-md-2">
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+            <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-sidebar">
+                        <i class="fas fa-search fa-fw"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" style="background-color: #3e8979">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            Shipment Fitur
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/LOGISTIK/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Requestor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/LOGISTIK/Create" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Form Requestor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/LOGISTIK/TabelConvert" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Table Convert</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/User/Index" class="nav-link active" style="background-color: #3e8979">
+                        <i class="bi bi-people-fill nav-icon"></i>
+                        <p>
+                            Account User
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+}
+

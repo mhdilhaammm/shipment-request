@@ -1,0 +1,37 @@
+﻿@model LOGISTIK.Models.CombineViewModel
+<html>
+<head>
+
+</head>
+<body>
+    <div class="tittle">
+        <p>New admin has been added, please contact user with the windows name "@User.Identity.Name" for details information</p>
+    </div>
+    <div class="row">
+        <table style=" font-family: Arial, Helvetica, sans-serif; border-collapse: collapse; width: 20rem;">
+            <tr>
+                <th style="padding: 8px 0; text-align: left;">Name</th>
+                <td style="padding: 0 2px">:</td>
+                <td style="padding: 8px 0; text-align: left; margin: 2px;">@Html.DisplayFor(model => model.UserModel.Name)</td>
+            </tr>
+            <tr>
+                <th style="padding: 8px 0; text-align: left; ">Email</th>
+                <td style="padding: 0 2px">:</td>
+                <td style="padding: 8px 0; text-align: left; margin: 2px;">@Html.DisplayFor(model => model.UserModel.Email)</td>
+            </tr>
+            <tr>
+                <th style="padding: 8px 0; text-align: left;">Windows Account</th>
+                <td style="padding: 0 2px">:</td>
+                <td style="padding: 8px 0; text-align: left; margin: 2px;">@Html.DisplayFor(model => model.UserModel.WindowsAccount)</td>
+            </tr>
+            <tr>
+                <th style="padding: 8px 0; text-align: left;">Type</th>
+                <td style="padding: 0 2px">:</td>
+                <td style="padding: 8px 0; text-align: left; margin: 2px;">@Html.DisplayFor(model => model.UserModel.Type)</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+

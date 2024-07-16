@@ -1,0 +1,320 @@
+﻿@model LOGISTIK.Models.CombineViewModel
+<body>
+    <h1>New Shipment Request Submitted</h1>
+    <p><b style="text-align:left">Dear Sir/Madam,</b></p>
+    <p>
+        <b style="text-align:left;">
+            A new shipment request has just been submitted by employe:
+        </b>
+    </p>
+    <div id="krangka" class="container" style="border-radius: 6px; position: center; margin: auto; justify-content:center;">
+        <!--REQUESTOR EMAIL TEMPLATE-->
+        <h2 style="background-color: #3e8979">Requestor</h2>
+        <table style="width: 800px; border-collapse: collapse; outline: none;" border="1">
+            <tr>
+                <th align="left" style=" width: 100px;">Requestor Badge ID</th>
+                <td style="width: 100px;background-color:white;">
+                    : @Html.DisplayFor(model => model.RequestorModel.BadgeId, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Name</th>
+                <td style="width: 100px;background-color:white;">
+                    : @Html.DisplayFor(model => model.RequestorModel.Name, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Email</th>
+                <td style="width: 100px;background-color:white;">
+                    : @Html.DisplayFor(model => model.RequestorModel.Email, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Departement</th>
+                <td style="width: 100px;background-color:white;">
+                    : @Html.DisplayFor(model => model.RequestorModel.Department, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Superior</th>
+                <td style="width: 100px;background-color:white;">
+                    : @Html.DisplayFor(model => model.RequestorModel.Superior, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+        </table>
+
+        <!--EQUIPMENT DETAIL TEMPLATE-->
+        <h2 style="background-color: #3e8979">Equipment Details</h2>
+        <table style="width: 800px; border-collapse: collapse; outline: none; " border="1">
+            <tr>
+                <th align="left" style=" width: 100px;">Equipment Details</th>
+                <td style="width: 100px;background-color:white;">
+                    :                 @Html.DisplayFor(model => model.EquipmentModel.Po_Machine, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Equipment Type (i.e Handler, Tester, WB, Oven..)</th>
+                <td style="width: 100px;background-color:white;">
+                    :                 @Html.DisplayFor(model => model.EquipmentModel.Equipment_Type, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Quantity</th>
+                <td style="width: 100px;background-color:white;">
+                    :                 @Html.DisplayFor(model => model.EquipmentModel.QTY, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DisplayFor(model => model.EquipmentModel.Satuan_QTY, new { htmlAttributes = new { @class = "form-control" } })
+
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Dimension L x W x H (in Cm)</th>
+                <td style="width: 100px;background-color:white;">
+                    :
+                    @Html.DisplayFor(model => model.DimensionModel.Length, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                    <br />
+                    @Html.DisplayFor(model => model.DimensionModel.Length_2, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight_2, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height_2, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                    <br />
+                    @Html.DisplayFor(model => model.DimensionModel.Length_3, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight_3, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height_3, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                    <br />
+                    @Html.DisplayFor(model => model.DimensionModel.Length_4, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight_4, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height_4, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                    <br />
+                    @Html.DisplayFor(model => model.DimensionModel.Length_5, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight_5, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height_5, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                    <br />
+                    @Html.DisplayFor(model => model.DimensionModel.Length_6, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight_6, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height_6, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                    <br />
+                    @Html.DisplayFor(model => model.DimensionModel.Length_7, new { htmlAttributes = new { @class = "form-control" } }) (L) -
+                    @Html.DisplayFor(model => model.DimensionModel.Weight_7, new { htmlAttributes = new { @class = "form-control" } }) (W) -
+                    @Html.DisplayFor(model => model.DimensionModel.Height_7, new { htmlAttributes = new { @class = "form-control" } }) (H)
+                </td>
+            </tr>
+
+            <tr>
+                <th align="left" style=" width: 100px;">Equipemtn Only Gross Weight (in Kg)</th>
+                <td style="width: 100px;background-color:white;">
+                    :   @Html.DisplayFor(model => model.EquipmentModel.Equipment_Gross, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Machine Placement Location</th>
+                <td style="width: 100px;background-color:white;">
+                    :   @Html.DisplayFor(model => model.EquipmentModel.Location, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+            </tr>
+        </table>
+
+        <!--SHIPPER CONTACT EMAIL TEMPLATE-->
+        <h2 style="background-color: #3e8979">Shipper Address</h2>
+        <table style="width: 800px; border-collapse: collapse; outline: none; " border="1">
+            <tr>
+                <th align="left" style=" width: 100px;">Contact</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Contact_Person, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Email Address</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Email_Address, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Phone</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Phone, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Company Name</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Company, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Address</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Address, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Code Post</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Post_Code, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Country</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Country, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Estimation Time</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.EquipmentModel.Pickup_Time, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+
+        <!--Cargo Condition-->
+        <h2 style="background-color: #3e8979">Cargo Condition</h2>
+        <table style="width: 800px; border-collapse: collapse; outline: none; " border="1">
+            <tr>
+                <th align="left" style=" width: 100px;">Does the is New Equipmetn?</th>
+                <td style="width: 100px;background-color:white;">:  @Html.DisplayFor(model => model.CargoModel.Q1, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does the cargo need Crating at origin</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q2, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does the cargo has been calibrated before shipment?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q3, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Who will do the packing/crating for the cargo?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q4, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does Cargo need special truck?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q5, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does cargo need Temperatur Control?</th>
+                <td style="background-color:white">: @Html.DisplayFor(model => model.CargoModel.Q6, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does the cargo need Uncrating, Pulling and levelling to Production?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q7, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Can we tlit the cargo during transportation?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q8, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does the cargo need Shock Watch?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q9, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does the cargo need fumigation?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q10, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Does the cargo consider as Dangerous Goods?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q11, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">If yes, what is the MSDS?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q12, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Other requirement/s on crate?</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q13, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">ETA expectation bt date</th>
+                <td style="background-color: white; width: 100px;">: @Html.DisplayFor(model => model.CargoModel.Q15, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+            <tr>
+                <th align="left" style=" width: 100px;">Shipment Mode</th>
+                <td style="background-color: white; width: 100px;">:  @Html.DisplayFor(model => model.EquipmentModel.Mode, new { htmlAttributes = new { @class = "form-control" } })</td>
+            </tr>
+        </table>
+        <center>
+            <p>For any question please contact the Logistic team.</p>
+            <p>do NOT replay this email.</p><br />
+            <a href="https://hsse.bth.infineon.com:444/LOGISTIK/Index" class="btn btn-primary">ShipmentRequest</a>
+        </center>
+</body>
+
+<!-- CSS ANCUR-ANCURAN UNTUK FORMAT EMAIL -->
+<style>
+    /*  ==================================
+        CSS untuk tampilan data dan header
+        ==================================
+    */
+    td, th {
+        padding: 3px;
+        margin-left: 5px;
+        background-color: white
+    }
+
+    td {
+        text-align: justify;
+        letter-spacing: 3px;
+        display: block;
+        background-color: ghostwhite;
+        width: 100px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th:first-child {
+        width: 20%;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        width: 200px;
+    }
+
+    table {
+        border-radius: 5px;
+    }
+    /* ==============================
+       CSS untuk membuat font header
+       ==============================
+    */
+    h2 {
+        text-align: left;
+        font-family: 'Times New Roman', serif;
+        font-style: italic;
+        color: black;
+        text-underline-offset: auto;
+        padding-bottom: 5px;
+        padding-top: 12px;
+    }
+
+    a #btnShipment {
+        margin-top: 1rem;
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 2rem;
+        color: #fefae0;
+        font-weight: 300;
+        background-color: var(--primary);
+        border-radius: 0.5rem;
+        box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+        transition: all 0.3s;
+    }
+    /* =========================
+        CSS untuk tampilan body
+       =========================
+    */
+    body {
+        position: relative;
+        display: flow;
+        font-size: 20px;
+        margin-left: 40px;
+        border-radius: 10px;
+        width: 60%;
+        height: 60%;
+        margin-right: 40px;
+    }
+
+    /* CSS untuk membuat */
+    h1 {
+        color: #3e8979;
+        text-align: left;
+        text-underline-offset: initial;
+    }
+
+    p {
+        color: black;
+        font-size: 16px;
+        font-family: 'Times New Roman', serif;
+    }
+</style>
